@@ -1,0 +1,32 @@
+<html></html>
+  <head>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="content">
+        <button onclick="location.href='/categories'">Categories</button>
+        <button onclick="location.href='/new'">Add item</button>
+        <h1>Items:</h1>
+        <ol class="Items">
+            <% items.map(m=>{ %>
+            <div class="itemBlock">
+                <div class="data">
+                    <h2>Name: <%=m.name%></h2>
+                    <h3>Description: <%=m.description%></h3>
+                    <h3>Price: <%=m.price%></h3>
+                    <h3>Stock: <%=m.quantity%></h3>
+                    <h3>Category: <%=m.category%></h3>
+                </div>
+                <div class="btns">
+                    <button onclick="location.href='/edit/<%=m.id%>'">Edit</button>
+                    <button onclick="location.href='/delete/<%=m.id%>'">Delete</button>
+                </div>
+            </div>
+            <%      }) %>
+            
+        </ol>
+    </div>
+
+    </div>
+  </body>
+</html>

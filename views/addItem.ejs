@@ -1,0 +1,45 @@
+<html></html>
+  <head>
+    <link rel="stylesheet" href="./">
+  </head>
+  <body>
+    <div class="content">
+      
+        <form method="POST" action="/new">
+            <h1>Add new item</h1>
+            <div>
+                <label for="send">Name:</label>
+                <input required name="name"type="text">
+            </div>
+
+            <div>
+                <label for="send">Category:</label>
+                <select name="category" id="options">
+                    <% categories.map(c=>{ %>
+                        <option value='<%=c%>'><%=c%></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <div>
+                <label for="send">Description:</label>
+                <input required name="desc"type="text">
+            </div>
+
+            <div>
+                <label for="send">Price:</label>
+                <input required name="price" type="text">
+            </div>
+            <div>
+                <label for="send">Stock:</label>
+                <input required name="stock" type="number">
+            </div>
+
+            <button type="submit">Submit</button>
+         </form>
+         <button onclick="location.href='/'">Back</button>
+    </div>
+
+    </div>
+  </body>
+</html>
