@@ -5,8 +5,9 @@
   <body>
     <div class="content">
         <button onclick="location.href='/categories'">Categories</button>
-        <button onclick="location.href='/new'">Add item</button>
-        <h1>Items:</h1>
+        <button onclick="location.href='/'">Menu</button>
+        <h1><%=category%></h1>
+        <h2>Items:</h2>
         <ol class="Items">
             <% items.map(m=>{ %>
             <div class="itemBlock">
@@ -25,8 +26,6 @@
             <%      }) %>
             
         </ol>
-    </div>
-
     </div>
   </body>
 </html>

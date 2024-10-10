@@ -19,12 +19,17 @@ async function updateItem(item) {
     await pool.query("UPDATE items SET name = $1, quantity = $2, description = $3, price = $4, category = $5 WHERE id = $6",[item.name, item.stock, item.desc, item.price, item.category, item.id]);
     return;
 }
+async function getAllItemsCategory(category){
+    const { rows } = await pool.query("SELECT * FROM items WHERE category = $1", [category]);
+    return rows;
+}
 
 module.exports = {
     getAllItems,
     addItem,
     deleteItemById,
     getItemById,
-    updateItem
+    updateItem,
+    getAllItemsCategory
   };
   
