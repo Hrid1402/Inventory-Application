@@ -108,11 +108,10 @@ VALUES ('Almond Milk', 60, 'Organic unsweetened almond milk', 4.99, 'Groceries &
 async function main() {
     console.log("seeding...");
     const client = new Client({
-        host: process.env.HOST,
-        user: process.env.USER,
-        database: process.env.DATABASE,
-        password: process.env.PASSWORD,
-        port: process.env.PORT
+      connectionString: process.env.URL,
+      ssl: {
+        rejectUnauthorized: false
+      }
       });
     await client.connect();
     await client.query(SQL);
