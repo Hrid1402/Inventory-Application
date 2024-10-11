@@ -1,19 +1,17 @@
 <html>
   <head>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="/forms.css">
   </head>
   <body>
     <div class="content">
-      
-      <button onclick="location.href='/'">Back</button>
         <form method="POST" action="/edit/<%=id%>">
             <h1>Edit item</h1>
-            <div>
+            <div class="inputBlock">
                 <label for="send">Name:</label>
                 <input required name="name"type="text" value=<%=name%>>
             </div>
 
-            <div>
+            <div class="inputBlock">
               <label for="send">Category:</label>
               <select name="category" id="options" value=<%=category%>>
                 <% categories.map(c=>{ %>
@@ -22,16 +20,17 @@
               </select>
             </div>
 
-            <div>
+            <div class="inputBlock">
                 <label for="send">Description:</label>
                 <input required name="desc"type="text" value=<%=desc%>>
             </div>
 
-            <div>
+            <div class="inputBlock">
                 <label for="send">Price:</label>
                 <input required name="price" type="text" value=<%=price%>>
             </div>
-            <div>
+            
+            <div class="inputBlock">
                 <label for="send">Stock:</label>
                 <input required name="stock" type="number" value=<%=stock%>>
             </div>
@@ -40,6 +39,7 @@
          </form>
          
     </div>
+    <button onclick="location.href='/'">Back</button>
 
     </div>
   </body>

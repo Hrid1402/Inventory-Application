@@ -1,18 +1,18 @@
 <html>
   <head>
-    <link rel="stylesheet" href="./">
+    <link rel="stylesheet" href="/forms.css">
   </head>
   <body>
     <div class="content">
       
         <form method="POST" action="/new">
             <h1>Add new item</h1>
-            <div>
+            <div class="inputBlock">
                 <label for="send">Name:</label>
                 <input required name="name"type="text">
             </div>
 
-            <div>
+            <div class="inputBlock">
                 <label for="send">Category:</label>
                 <select name="category" id="options">
                     <% categories.map(c=>{ %>
@@ -21,24 +21,26 @@
                 </select>
             </div>
 
-            <div>
+            <div class="inputBlock">
                 <label for="send">Description:</label>
                 <input required name="desc"type="text">
             </div>
 
-            <div>
+            <div class="inputBlock">
                 <label for="send">Price:</label>
                 <input required name="price" type="text">
             </div>
-            <div>
+
+            <div class="inputBlock">
                 <label for="send">Stock:</label>
                 <input required name="stock" type="number">
             </div>
 
             <button type="submit">Submit</button>
          </form>
-         <button onclick="location.href='/'">Back</button>
+         
     </div>
+        <button onclick="location.href='/'">Back</button>
 
     </div>
   </body>

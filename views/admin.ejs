@@ -1,18 +1,19 @@
 <html>
   <head>
-    <link rel="stylesheet" href="./">
+    <link rel="stylesheet" href="/forms.css">
   </head>
   <body>
     <div class="content">
         <form method="POST" action="/delete/<%=id%>">
             <h1>Admin password is required for this action</h1>
-            <div>
+            <div class="inputBlock">
                 <input name="password" type="password">
             </div>
             <button type="submit">Submit</button>
          </form>
-         <button onclick="location.href='/'">Back</button>
+         
     </div>
+    <button onclick="location.href='/'">Back</button>
 
     </div>
   </body>
