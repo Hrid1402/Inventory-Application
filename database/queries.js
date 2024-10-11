@@ -1,7 +1,7 @@
 const pool = require("./pool");
 
 async function getAllItems() {
-  const { rows } = await pool.query("SELECT * FROM items");
+  const { rows } = await pool.query("SELECT * FROM items ORDER BY id DESC");
   return rows;
 }
 async function addItem(item){
@@ -20,7 +20,7 @@ async function updateItem(item) {
     return;
 }
 async function getAllItemsCategory(category){
-    const { rows } = await pool.query("SELECT * FROM items WHERE category = $1", [category]);
+    const { rows } = await pool.query("SELECT * FROM items WHERE category = $1 ORDER BY name", [category]);
     return rows;
 }
 

@@ -8,8 +8,25 @@ app.use(express.static(assetsPath));
 require('dotenv').config();
 
 const validateInput = [
-    body("name").trim().isLength({ min: 1, max: 15 }).withMessage("The name can needs to have from 0 to 15 characters."),
+    body("name")
+      .trim()
+      .isLength({ min: 1, max: 15 })
+      .withMessage("The name must have from 1 to 15 characters."),
+    
+    body("stock")
+      .isInt({ min: 1 })
+      .withMessage("Quantity must be a positive integer."),
+    
+    body("description")
+      .trim()
+      .isString()
+      .withMessage("Description must be a string."),
+    
+    body("price")
+      .isFloat({ min: 0 })
+      .withMessage("Price must be a positive number."),
   ];
+
 const categories = [
     "Electronics",
     "Fashion",
@@ -74,7 +91,6 @@ app.get('/new',(req, res)=>{
 });
 app.post('/new', validateInput, (req, res)=>{
     const errors = validationResult(req);
-    console.log(errors);
     if (!errors.isEmpty()) {
        return res.render("error",{value: errors.array()[0].value, error: errors.array()[0].msg});
       }
@@ -96,7 +112,11 @@ app.post('/delete/:id',(req, res)=>{
 app.get('/edit/:id',(req, res)=>{
     getElement(req, res, req.params.id);
 });
-app.post('/edit/:id',(req, res)=>{
+app.post('/edit/:id', validateInput, (req, res)=>{
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return res.render("error",{value: errors.array()[0].value, error: errors.array()[0].msg});
+    }
     updateItem(req, res, {name: req.body.name, desc: req.body.desc, price: req.body.price, stock: req.body.stock, category: req.body.category, id: req.params.id})
 });
 

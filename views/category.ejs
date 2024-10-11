@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="/index.css">
+    <link rel="icon" type="image/x-icon" href="/icon.svg">
   </head>
   <body>
     <div class="content">
@@ -12,11 +13,11 @@
             <% items.map(m=>{ %>
             <div class="itemBlock">
                 <div class="data">
-                    <h2>Name: <%=m.name%></h2>
-                    <h3>Description: <%=m.description%></h3>
-                    <h3>Price: <%=m.price%></h3>
-                    <h3>Stock: <%=m.quantity%></h3>
-                    <h3>Category: <%=m.category%></h3>
+                  <h2><b><i>Name:</i></b> <%=m.name%></h2>
+                  <h2><b><i>Description:</i></b> <%=m.description%></h2>
+                  <h2><b><i>Price:</i></b> <%=m.price%></h2>
+                  <h2><b><i>Stock:</i></b> <%=m.quantity%></h2>
+                  <h2><b><i>Category:</i></b> <%=m.category%></h2>
                 </div>
                 <div class="btns">
                     <button onclick="location.href='/edit/<%=m.id%>'">Edit</button>
